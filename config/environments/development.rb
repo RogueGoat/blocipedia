@@ -1,4 +1,6 @@
 Rails.application.configure do
+  # DOUBLE CHECK IN CASE NEED TO CHANCE HOST
+  config.action_mailer.default_url_options = { host: 'https://bloc-foundation-roguegoat.c9users.io/', port: 8080 }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
