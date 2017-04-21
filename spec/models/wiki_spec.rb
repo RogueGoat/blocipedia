@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Wiki, type: :model do
+    
   describe "GET new" do
       it "returns http success" do
         get :new
@@ -14,27 +15,10 @@ RSpec.describe Wiki, type: :model do
       end
  
 
-      it "instantiates @post" do
+      it "instantiates @wiki" do
         get :new
-        expect(assigns(:post)).not_to be_nil
+        expect(assigns(:wiki)).not_to be_nil
       end
     end
- 
-    describe "POST create" do
-      it "increases the number of Post by 1" do
-        expect{post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to change(Post,:count).by(1)
-      end
- 
-
-      it "assigns the new post to @post" do
-        post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
-        expect(assigns(:post)).to eq Post.last
-      end
- 
- 
-      it "redirects to the new post" do
-        post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
-        expect(response).to redirect_to Post.last
-      end
-    end
+    
 end
