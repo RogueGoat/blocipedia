@@ -2,24 +2,50 @@
 <html>
 <head>
   <title>Blocipedia</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-    <div class = "user-nav">
-  <% if user_signed_in? %>
-   Signed in as: <strong><%= current_user.email %></strong> |
-   <h4><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></h4> - <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h4>
+ <ul class="nav nav-tabs">
+       <li><%= link_to "Blocipedia", root_path %></li>
+       <li><%= link_to "Blocis", wiki_index_path %></li>
+       <li><%= link_to "About", about_path %></li>
+   
+ <div class = "nav nav-tabs pull-right">
+ <% if user_signed_in? %>
+  Signed in as: <strong><%= current_user.email %></strong> |
+   <h4><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></h4>  <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h4>
  <% else %>
    <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
    <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
  <% end %>
  </div>
-  <!-- inserted notice and alert from devise advice-->
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
+ <!-- issue here - links dont want to work -->
+ <div class="site-body">
+     <ul class="tabs">
+       
+       
+     </ul>
+   </div>
+   </div>
+    <% if flash[:notice] %>
+       <div class="alert alert-success">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <%= flash[:notice] %>
+       </div>
+     <% elsif flash[:alert] %>
+       <div class="alert alert-warning">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <%= flash[:alert] %>
+       </div>
+     <% end %>
+     
+     <%= yield %>
 
 </body>
 </html>
