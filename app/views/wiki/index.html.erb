@@ -3,16 +3,17 @@
 <br>
 <br>
 <br>
-<h1>Blocis - Check them out!</h1>
+<h1 class = "fancy"><center>Blocis - Check them out!</center></h1>
 
 <div class = "new-wiki">
-<%= link_to "New", new_wiki_path, class: 'btn pull-right' %>
+<h2><%= link_to "New", new_wiki_path, class: 'btn pull-right' %></h2>
 </div>
 
 <% @wiki.each do |wiki| %>
   <div class="media">
     <div class="media-body">
-      <h4 class="media-heading">
+      <!--<h4 class="media-heading">-->
+      <h4 class="wiki-title">
         <%= link_to wiki.title, wiki %>
       </h4>
     </div>

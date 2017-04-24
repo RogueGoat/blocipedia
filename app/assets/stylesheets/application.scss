@@ -1,6 +1,55 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  
+ 
+ .jumbotron-edit {
+  background-color: lightblue;
+ }
+ .fancy {
+  font-family: 'Norican', cursive;
+ }
+ .welcome-font {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+ }
+ .index-header {
+  margin-left: 50px;
+ }
+ .index-info {
+  margin-left: 30px;
+  margin-right: 30px;
+ }
+ .main-links:active {
+  font-family: 'Norican', cursive;
+ }
+ .new-wiki {
+    margin-right: 50px;
+}
+ .wiki-title {
+    margin-left: 50px;
+    text-decoration: none;
+    
+}
+ .wiki-title:hover {
+    margin-left: 50px;
+    text-decoration: underline;
+    background-color: lightblue;
+    color: white;
+    
+}
+ .wiki-title:active {
+    margin-left: 50px;
+    text-decoration: none;
+    font-style: italic;
+    background-color: lightblue;
+    color: white;
+    
+}
+
+.show-view {
+ margin-left: 50px;
+ margin-right: 50px;
+}
+
 // .user-nav {
 //  color: purple;
 //  font-family: Arial;

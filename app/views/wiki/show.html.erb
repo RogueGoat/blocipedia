@@ -3,12 +3,20 @@
 <br>
 <br>
 <br>
-<h1><%= @wiki.title %></h1>
+
+<h1><center><%= @wiki.title %></center></h1>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="row">
+  <div class = "show-view">
   <div class="col-md-8">
     <p><%= @wiki.body %></p>
   </div>
-  <div>
+  </div>
+  <div class = "pull-right show-view">
       <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
       <%= link_to "Delete", @wiki, method: :delete, class: 'btn btn-danger', data: {confirm: 'Think long and hard before you destroy this wiki!'} %>
   </div>
