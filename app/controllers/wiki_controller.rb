@@ -45,9 +45,9 @@ class WikiController < ApplicationController
     end
     
     def destroy
-        @wiki = Wiki.find(params[:id])
+      @wiki = Wiki.find(params[:id])
       if @wiki.destroy
-      flash[:notice] = "This Bloci has been deleted. I hope you're proud of yourself!"
+      flash[:notice] = "\"#{@wiki.title}\" has been deleted. I hope you're proud of yourself!"
       redirect_to root_path
       else
       flash[:alert] = "Error! This Bloci remains! Maybe you should think again about deleting someone else's hard work!"
