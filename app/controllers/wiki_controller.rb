@@ -9,10 +9,9 @@ class WikiController < ApplicationController
     end
     
     def create
-
      @wiki = Wiki.new
-     @wiki.title = params[:post][:title]
-     @wiki.body = params[:post][:body]
+     @wiki.title = params[:wiki][:title]
+     @wiki.body = params[:wiki][:body]
 
      if @wiki.save
        flash[:notice] = "Your new Wiki was saved"
@@ -33,20 +32,26 @@ class WikiController < ApplicationController
     
     def update
      @wiki = Wiki.find(params[:id])
-     @wiki.title = params[:post][:title]
-     @wiki.body = params[:post][:body]
+     @wiki.title = params[:wiki][:title]
+     @wiki.body = params[:wiki][:body]
 
      if @wiki.save
        flash[:notice] = "Your updates have been noted!"
        redirect_to @wiki
      else
-       flash.now[:alert] = "Error! Wiki was not updated, please try again"
+       flash.now[:alert] = "Error! Bloci was not updated, please try again"
        render :new
      end
     end
     
     def destroy
-        @wiki = []
+        @wiki = Wiki.find(params[:id])
+      if @wiki.destroy
+      flash[:notice] = "This Bloci has been deleted. I hope you're proud of yourself!"
+      redirect_to root_path
+      else
+      flash[:alert] = "Error! This Bloci remains! Maybe you should think again about deleting someone else's hard work!"
+      render :show
+      end
     end
-    
 end

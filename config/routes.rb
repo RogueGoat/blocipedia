@@ -4,6 +4,7 @@ Rails.application.routes.draw do
    resources :wiki
    
    get 'wiki' => 'wiki#index'
+   get 'wiki' => 'wiki#new'
    get 'about' => 'welcome#about'
    root 'welcome#index'
 end

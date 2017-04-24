@@ -1,3 +1,8 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 <h1><%= @wiki.title %></h1>
 <div class="row">
   <div class="col-md-8">
@@ -5,6 +10,6 @@
   </div>
   <div>
       <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
-<%= link_to "Delete", @wiki, method: :delete, class: 'btn btn-danger', data: {confirm: 'Think long and hard before you destroy this wiki!'} %>
+      <%= link_to "Delete", @wiki, method: :delete, class: 'btn btn-danger', data: {confirm: 'Think long and hard before you destroy this wiki!'} %>
   </div>
 </div>
