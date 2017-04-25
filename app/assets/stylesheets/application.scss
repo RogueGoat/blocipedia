@@ -2,24 +2,34 @@
  @import "bootstrap";
  
  h1 {
-  font-size: 100px;
+  font-size: 50px;
 }
  .jumbotron-edit {
   // background-color: lightblue;
-  background-image: url("backgroundforblocipedia.jpg")
+  background-image: url("bgbloci.jpg")
   // border-radius: 4px;
   // margin: 20px;
+ }
+  .jumbotron-edit2 {
+   background-color: darkgrey;
  }
  .fancy {
   font-family: 'Norican', cursive;
  }
- .white-font {
-  color: violet;
+ .white-text {
+  color: white;
  }
  .welcome-font {
-  text-shadow: -1px 0 violet, 0 1px violet, 1px 0 violet, 0 -1px violet;
+  // text-shadow: -1px 0 violet, 0 1px violet, 1px 0 violet, 0 -1px violet;
   
  }
+ .img {
+  float: left;
+  margin-right: 10px;
+ }
+.text-space {
+ margin-right: 10px;
+}
  .index-header {
   margin-left: 50px;
  }

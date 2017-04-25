@@ -14,10 +14,10 @@ class WikiController < ApplicationController
      @wiki.body = params[:wiki][:body]
 
      if @wiki.save
-       flash[:notice] = "Your new Wiki was saved"
+       flash[:notice] = "Your new Bloci was saved"
        redirect_to @wiki
      else
-       flash.now[:alert] = "Error! Wiki was not saved, please try again"
+       flash.now[:alert] = "Error! Bloci was not saved, please try again"
        render :new
      end
     end
