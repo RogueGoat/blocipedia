@@ -13,8 +13,7 @@
 <body>
  <ul class="nav nav-tabs">
        <li class = "main-links"><%= link_to "Blocipedia", root_path %></li>
-       <li class = "main-links"><%= link_to "Blocis", wiki_index_path %></li>
-       <li class = "main-links"><%= link_to "About", about_path %></li>
+       <li class = "main-links"><%= link_to "Blocis", wikis_path %></li>
  <div class = "nav nav-tabs pull-right">
  <% if user_signed_in? %>
   Signed in as: <strong><%= current_user.email %></strong> |

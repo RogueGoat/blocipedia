@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-   devise_for :models
-   devise_for :users
-   resources :wiki
-   
-   # get 'wiki' => 'wiki#index'
-   # get 'wiki' => 'wiki#new'
-   get 'about' => 'welcome#about'
-   root 'welcome#index'
+  resources :collaborators
+  root 'welcome#index'
+
+  resources :wikis do
+  resources :collaborators, only: [:new, :create, :destroy]
+  end
+  resources :charges, only: [:new, :create, :destroy]
+  devise_for :users
 end
