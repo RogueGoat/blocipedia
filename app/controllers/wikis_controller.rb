@@ -2,14 +2,14 @@ class WikisController < ApplicationController
     # skip_before_action :authenticate_user!
     
     def new
-        @wikis = Wiki.new
+        @wiki = Wiki.new
     end
     
     def index
         @wiki = Wiki.all
     end
     
-     def create
+    def create
      @wiki = Wiki.new
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
