@@ -6,8 +6,9 @@ require 'random_data'
 #     body:   RandomData.random_paragraph
 #   )
 #   wiki.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
+
  10.times do
-  user = User.create!(
+  User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password
   )
@@ -16,7 +17,7 @@ require 'random_data'
  users = User.all
  
  25.times do
- wiki = Wiki.create!(
+  Wiki.create!(
     title:  Faker::HarryPotter.character,
     body:   Faker::HarryPotter.quote,
     users: users.sample
