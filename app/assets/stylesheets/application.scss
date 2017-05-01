@@ -4,24 +4,23 @@
  h1 {
   font-size: 50px;
 }
+.background-general {
+ background-image: url("diamonds_bg3.png")
+}
  .jumbotron-edit {
-  // background-color: lightblue;
-  background-image: url("bgbloci.jpg")
-  // border-radius: 4px;
-  // margin: 20px;
+  background-color: lightgrey;
  }
   .jumbotron-edit2 {
    background-color: darkgrey;
  }
  .jumbotron-edit3 {
-  // background-image: url("gembg_gif.gif")
-  background-color: #475d91;
+  background-image: url("diamonds_bg3.png")
  }
  .fancy {
   font-family: 'Norican', cursive;
  }
- .white-text {
-  color: white;
+ .dark-text {
+  color: darkgrey;
  }
  .welcome-font {
   // text-shadow: -1px 0 violet, 0 1px violet, 1px 0 violet, 0 -1px violet;
@@ -29,9 +28,9 @@
  }
  .img {
   float: left;
-  margin-right: 10px;
+  margin-right: 20px;
  }
-.text-space {
+.text-spacing {
  margin-right: 10px;
 }
  .index-header {

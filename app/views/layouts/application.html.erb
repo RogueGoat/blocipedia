@@ -12,12 +12,19 @@
 
 <body>
  <ul class="nav nav-tabs">
-       <li class = "main-links"><%= link_to "Blocipedia", root_path %></li>
-       <li class = "main-links"><%= link_to "Blocis", wikis_path %></li>
+       <li class = "main-links"><%= link_to "Home", root_path %></li>
+       <li class = "main-links"><%= link_to "Chomps", wikis_path %></li>
  <div class = "nav nav-tabs pull-right">
- <% if user_signed_in? %>
-  Signed in as: <strong><%= current_user.email %></strong> |
-   <h4><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></h4>  <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h4>
+  
+ <% if user_signed_in? && role = "standard" %>
+  Signed in as: <strong><%= current_user.email %></strong> 
+   <h4><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></h4>
+   <h4><%= link_to 'Upgrade to Premium', new_charge_path, :class => 'navbar-link' %></h4> 
+   <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h4>
+ <% elsif user_signed_in? && role = "premium" %>
+  Signed in as: <strong><%= current_user.email %></strong> <h3 class = "premium">Premium Member</h3>
+   <h4><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></h4>  
+   <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h4>
  <% else %>
    <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
    <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
