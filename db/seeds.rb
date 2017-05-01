@@ -14,13 +14,13 @@ require 'random_data'
   )
  end
  
- users = User.all
+#  users = User.all
  
  25.times do
   Wiki.create!(
     title:  Faker::HarryPotter.character,
     body:   Faker::HarryPotter.quote,
-    users: users.sample
+    user: User.all.sample
   )
  end 
  
