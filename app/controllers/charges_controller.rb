@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
    )
  
    flash[:notice] = "You've been upgraded to premium, #{current_user.email}!"
-   redirect_to user_path(current_user) # or wherever
+   redirect_to root_path # or wherever
  
    # Stripe will send back CardErrors, with friendly messages
    # when something goes wrong.
@@ -30,8 +30,8 @@ class ChargesController < ApplicationController
   def new
    @stripe_btn_data = {
      key: "#{ Rails.configuration.stripe[:publishable_key] }",
-     description: "Premium Membership - #{current_user.name}",
-     amount: Amount.default
+     description: "Premium Membership - #{current_user.email}",
+     amount: 1500
    }
   end
 end

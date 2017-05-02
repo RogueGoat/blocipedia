@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
    before_save { self.email = email.downcase if email.present? }
    after_initialize { self.role ||= :standard }
 
-    validates :email,
+   validates :email,
              presence: true,
              uniqueness: { case_sensitive: false },
              length: { minimum: 3, maximum: 254 }
