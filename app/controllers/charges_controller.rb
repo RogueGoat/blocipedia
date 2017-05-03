@@ -15,6 +15,14 @@ class ChargesController < ApplicationController
      description: "Premium Membership - #{current_user.email}",
      currency: 'usd'
    )
+   
+   customer = Stripe::Customer.create(
+      email: current_user.email,
+      source: params[:stripeToken]
+    )
+    
+    current_user.update_attributes(stripe_id: customer.id)
+    current_user.update_attributes(role: 'premium')
  
    flash[:notice] = "You've been upgraded to premium, #{current_user.email}!"
    redirect_to root_path # or wherever
@@ -33,5 +41,9 @@ class ChargesController < ApplicationController
      description: "Premium Membership - #{current_user.email}",
      amount: 1500
    }
+  end
+  
+  def destroy
+   current_user.role("standard")
   end
 end
