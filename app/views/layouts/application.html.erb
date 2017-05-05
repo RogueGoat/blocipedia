@@ -14,21 +14,27 @@
  <ul class="nav nav-tabs">
        <li class = "main-links"><%= link_to "Home", root_path %></li>
        <li class = "main-links"><%= link_to "Chomps", wikis_path %></li>
+    <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+ 
  <div class = "nav nav-tabs pull-right">
-  
- <% if user_signed_in? && role = "standard" %>
-  Signed in as: <strong><%= current_user.email %></strong> 
-   <h4><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></h4>
-   <h4><%= link_to 'Upgrade to Premium', new_charge_path, :class => 'navbar-link' %></h4> 
-   <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h4>
- <% elsif user_signed_in? && role = "premium" %>
-  Signed in as: <strong><%= current_user.email %></strong> <h3 class = "premium">Premium Member</h3>
-   <h4><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></h4>  
-   <h4><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h4>
+ <% if user_signed_in? && current_user.role == 'standard' %>
+   <li class = "main-links"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+   <li class = "main-links"><%= link_to 'Upgrade to Premium', new_charge_path, :class => 'navbar-link' %></li>
+   <li class = "main-links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+ <% elsif user_signed_in? && current_user.role == 'premium' %>
+   <li class = "main-links"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+   <li class = "main-links"><%= link_to 'End Subscription', new_charge_path, :class => 'navbar-link' %></li>
+   <li class = "main-links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
  <% else %>
    <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
    <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
  <% end %>
+ <div class = "user-info">Signed in as: <strong><%= current_user.email %></strong> | Membership: <strong><%= current_user.role %></strong></div>
  </div>
  <!-- issue here - links dont want to work -->
  <div class="site-body">

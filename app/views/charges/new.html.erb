@@ -1,6 +1,52 @@
- <%= form_tag charges_path do %>
+ <div class="table-responsive pull-right charges-form2 col-md-4">
+  <table class="table">
+   <h2 class = "CHANGE">What are roles anyway?</h2>
+    <p><strong>Standard:</strong> Everyone starts out as a tiny guppy, but you have the chance to upgrade to Great-White PREMIUM status TODAY! As a standard member you have access to all public wikis, however, no private ones.</p>
+    <p><strong>Premium:</strong> Upgrade today and start your PREMIUM membership as an exclusive Great-White member! Premium users get to make, edit, and utilize private wikis! Keep your secrets among friends, and away from the peasants!</p>
+  </table>
+</div>
+<% if current_user.role == 'standard' %>
+<div class = "charges-form">
+ <div class="table-responsive">
+  <table class="table">
+   <h2 class = "CHANGE">What you get when you upgrade!</h2>
+    <li>
+     <ul>Exclusive access to private wikis</ul>
+     <ul>Prestige knowing you're the bougiest of members</ul>
+     <ul>A wonderful sense of superiority!</ul>
+    </li>
+  </table>
+</div>
+  <%= form_tag charges_path do %>
    <h4>Upgrade to Premium!</h4>
    <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" >
     Stripe.setPublishableKey('pk_test_blrYSq2P2hRvHT8CpPRQhThw');
    </script>
+  <% end %>
+  <% elsif current_user.role == 'premium' %>
+ <div class="table-responsive charges-form">
+  <table class="table">
+   <h2 class = "CHANGE">Not happy with your subscription?</h2>
+    <p>
+     Just be aware if you choose to downgrade all your private wikis become public!
+    </p>
+  </table>
+   <%= form_tag charges_path do %>
+   <h4>Downgrade to Standard</h4>
+   <button class = "stripe-button"><%= link_to 'End Subscription', new_charge_path, method: :destroy, :class => 'navbar-link' %></button>
+  <% end %>
+</div>
+</div>
+
 <% end %>
+ <div class = "jumbotron jumbotron-edit2 charges-form2">
+  <center>
+   Contact | About us | Upgrade
+   <br>
+   <br>
+   Donate | Help | Etc
+   <br>
+   <br>
+   Search <input type="text" name="search"> <button>Submit</button>
+  </center>
+ </div>

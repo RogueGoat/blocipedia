@@ -8,6 +8,7 @@
  background-image: url("diamonds_bg3.png")
 }
  .jumbotron-edit {
+  margin-top: 100px;
   background-color: #4b5b57;
  }
   .jumbotron-edit2 {
@@ -22,9 +23,8 @@
  .dark-text {
   color: darkgrey;
  }
- .welcome-font {
-  // text-shadow: -1px 0 violet, 0 1px violet, 1px 0 violet, 0 -1px violet;
-  
+ .user-info {
+  margin-top: 50px;
  }
  .img {
   float: left;
@@ -70,6 +70,18 @@
 .show-view {
  margin-left: 50px;
  margin-right: 50px;
+}
+
+
+//CHARGES
+
+.charges-form {
+ margin-top: 200px;
+ margin-left: 100px;
+
+}
+.charges-form2 {
+ margin-top: 200px;
 }
 
 // .user-nav {
