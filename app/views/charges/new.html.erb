@@ -33,13 +33,13 @@
   </table>
    <%= form_tag charges_path do %>
    <h4>Downgrade to Standard</h4>
-   <button class = "stripe-button"><%= link_to 'End Subscription', new_charge_path, method: :destroy, :class => 'navbar-link' %></button>
+   <button class = "stripe-button"><%= link_to 'End Subscription', charge_path, method: :destroy, :class => 'navbar-link' %></button>
   <% end %>
 </div>
 </div>
 
 <% end %>
- <div class = "jumbotron jumbotron-edit2 charges-form2">
+<div class = "bottom-bar">
   <center>
    Contact | About us | Upgrade
    <br>

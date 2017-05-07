@@ -4,12 +4,24 @@
  h1 {
   font-size: 50px;
 }
+
+.spacing {
+ margin: 20px;
+}
+
+.bottom-bar {
+ background-color: #8da8a4;
+ width: 100%;
+ padding: 30px;
+}
+// universal
+
 .background-general {
  background-image: url("diamonds_bg3.png")
 }
  .jumbotron-edit {
   margin-top: 100px;
-  background-color: #4b5b57;
+  background-color: #8da8a4;
  }
   .jumbotron-edit2 {
    background-color: darkgrey;
@@ -43,6 +55,9 @@
  .main-links:active {
   font-family: 'Norican', cursive;
  }
+ 
+ // wikis
+ 
  .new-wiki {
     margin-right: 50px;
 }

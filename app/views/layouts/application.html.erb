@@ -26,15 +26,17 @@
    <li class = "main-links"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
    <li class = "main-links"><%= link_to 'Upgrade to Premium', new_charge_path, :class => 'navbar-link' %></li>
    <li class = "main-links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+ <div class = "user-info">Signed in as: <strong><%= current_user.email %></strong> | Membership: <strong><%= current_user.role %></strong></div>
  <% elsif user_signed_in? && current_user.role == 'premium' %>
-   <li class = "main-links"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-   <li class = "main-links"><%= link_to 'End Subscription', new_charge_path, :class => 'navbar-link' %></li>
-   <li class = "main-links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+  <li class = "main-links"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+  <li class = "main-links"><%= link_to 'End Subscription', new_charge_path, :class => 'navbar-link' %></li>
+  <li class = "main-links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+ <div class = "user-info">Signed in as: <strong><%= current_user.email %></strong> | Membership: <strong><%= current_user.role %></strong></div>
+  
  <% else %>
    <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
    <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
  <% end %>
- <div class = "user-info">Signed in as: <strong><%= current_user.email %></strong> | Membership: <strong><%= current_user.role %></strong></div>
  </div>
  <!-- issue here - links dont want to work -->
  <div class="site-body">
