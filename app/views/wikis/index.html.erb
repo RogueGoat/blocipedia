@@ -3,7 +3,7 @@
 <br>
 <br>
 <br>
-<div class="jumbotron jumbotron-edit3">
+<div class="jumbotron jumbotron-edit">
   <div class = "index-header">
    <h1 class = "fancy"><center><%= image_tag("BP_logo_grey.gif", :alt => "Blocipedia") %></center></h1>
    <br>
@@ -16,13 +16,36 @@
 <h2><%= link_to "New", new_wiki_path, class: 'btn pull-right' %></h2>
 </div>
 
+ <div class="row">
 <% @wiki.each do |wiki| %>
   <div class="media">
     <div class="media-body">
       <!--<h4 class="media-heading">-->
+      <div class="col-md-3">
       <h4 class="wiki-title">
-        <%= link_to wiki.title, wiki %>
+          <% if wiki.private != true %>
+         <%= link_to wiki.title, wiki %>
+         <% end %>
       </h4>
     </div>
   </div>
+  </div>
 <% end %>
+
+   <div class="col-md-3">
+ <% if current_user && current_user.role == 'premium' %>
+    <div>
+    <h2>Your Private Chomps</h2>
+      <% if @user.wikis.count >= 1 %>
+        <% @user.wikis.each do |wiki| %>
+            <% if @wiki.private %>
+              <p><%= link_to wiki.title, wiki %></p>
+            <% end %>
+        <% end %>
+      <% else %>
+        <p>Feel free to take the bait and make a Chomp!</p>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+  </div>

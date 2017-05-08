@@ -1,12 +1,6 @@
 class ChargesController < ApplicationController
 
   def create
-   # Creates a Stripe Customer object, for associating
-   # with the charge
-   customer = Stripe::Customer.create(
-     email: current_user.email,
-     card: params[:stripeToken]
-   )
  
    # Where the real magic happens
    charge = Stripe::Charge.create(
@@ -46,5 +40,8 @@ class ChargesController < ApplicationController
   def destroy
    current_user.update_attributes(stripe_id: customer.id)
    current_user.update_attributes(role: 'standard')
+   
+   flash[:notice] = "You removed your premium subscription, #{current_user.email} (CHUM!)"
+   redirect_to root_path
   end
 end

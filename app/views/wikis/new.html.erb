@@ -5,32 +5,6 @@
 
  <h1>Create a Wiki</h1>
  <p><h4>(not to be confused with a wookie!)</h4></p>
- 
- <div class="row">
-   <div class="col-md-4">
-     <p>Need some tips before creating your Wiki?</p>
-     <ul>
-       <li>Make it relevant!</li>
-       <li>Remember to include sources for your information.</li>
-       <li>Add pictures, quotes, and personal anecdotes to make your topic super interesting!</li>
-     </ul>
-   </div>
-   <div class="col-md-6">
-   <%= form_for @wiki do |wiki| %>
-    <div class="form-group">
-      <%= wiki.label :title %>
-      <%= wiki.text_field :title, class: 'form-control', placeholder: 'Enter Wiki Title' %>
-    </div>
-    <div class="form-group">
-      <%= wiki.label :body %>
-      <%= wiki.text_area :body, class: 'form-control', placeholder: 'Enter Wiki information here' %>
-    </div>
-      <div class="form-group">
-        <%= wiki.label :private, class: 'checkbox' do %>
-          <%= wiki.check_box :private %> Private topic
-        <% end %>
-      </div>
-    <%= wiki.submit "Save", class: 'btn btn-success' %>
-    <% end %>
-   </div>
- </div>
+<div class="content">
+  <%= render 'form' %>
+</div>

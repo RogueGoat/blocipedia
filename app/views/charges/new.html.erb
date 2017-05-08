@@ -1,4 +1,6 @@
- <div class="table-responsive pull-right charges-form2 col-md-4">
+ <div class ="charges-form2">
+  
+  <div class="table-responsive pull-right col-md-3">
   <table class="table">
    <h2 class = "CHANGE">What are roles anyway?</h2>
     <p><strong>Standard:</strong> Everyone starts out as a tiny guppy, but you have the chance to upgrade to Great-White PREMIUM status TODAY! As a standard member you have access to all public wikis, however, no private ones.</p>
@@ -17,13 +19,18 @@
     </li>
   </table>
 </div>
+
+ 
   <%= form_tag charges_path do %>
    <h4>Upgrade to Premium!</h4>
    <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" >
     Stripe.setPublishableKey('pk_test_blrYSq2P2hRvHT8CpPRQhThw');
    </script>
   <% end %>
+ 
   <% elsif current_user.role == 'premium' %>
+ <div class = "pull-right"><%= image_tag("chum_downgrade_placeholder.png", :alt => "become chum") %>
+ </div>
  <div class="table-responsive charges-form">
   <table class="table">
    <h2 class = "CHANGE">Not happy with your subscription?</h2>
@@ -33,7 +40,7 @@
   </table>
    <%= form_tag charges_path do %>
    <h4>Downgrade to Standard</h4>
-   <button class = "stripe-button"><%= link_to 'End Subscription', charge_path, method: :destroy, :class => 'navbar-link' %></button>
+   <button class = "stripe-button"><%= link_to 'End Subscription', method: :destroy, :class => 'navbar-link' %></button>
   <% end %>
 </div>
 </div>
@@ -49,4 +56,5 @@
    <br>
    Search <input type="text" name="search"> <button>Submit</button>
   </center>
+ </div>
  </div>
