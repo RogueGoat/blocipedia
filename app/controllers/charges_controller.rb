@@ -1,7 +1,11 @@
 class ChargesController < ApplicationController
 
   def create
- 
+      
+   customer = Stripe::Customer.create(
+      email: current_user.email,
+      source: params[:stripeToken]
+    )
    # Where the real magic happens
    charge = Stripe::Charge.create(
      customer: customer.id, # Note -- this is NOT the user_id in your app
@@ -9,13 +13,7 @@ class ChargesController < ApplicationController
      description: "Premium Membership - #{current_user.email}",
      currency: 'usd'
    )
-   
-   customer = Stripe::Customer.create(
-      email: current_user.email,
-      source: params[:stripeToken]
-    )
     
-    current_user.update_attributes(stripe_id: customer.id)
     current_user.update_attributes(role: 'premium')
  
    flash[:notice] = "You've been upgraded to premium, #{current_user.email}!"
@@ -35,13 +33,14 @@ class ChargesController < ApplicationController
      description: "Premium Membership - #{current_user.email}",
      amount: 1500
    }
+#   binding.pry
   end
   
   def destroy
-   current_user.update_attributes(stripe_id: customer.id)
+    #   binding.pry
    current_user.update_attributes(role: 'standard')
    
-   flash[:notice] = "You removed your premium subscription, #{current_user.email} (CHUM!)"
-   redirect_to root_path
+   flash[:notice] = "You're no longer subscribed as  premium user, #{current_user.email} (CHUM!)"
+   redirect_to root_path    
   end
 end

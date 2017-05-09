@@ -5,17 +5,37 @@
 <br>
 <div class="jumbotron jumbotron-edit">
   <div class = "index-header">
-   <h1 class = "fancy"><center><%= image_tag("BP_logo_grey.gif", :alt => "Blocipedia") %></center></h1>
+   <h1 class = "fancy"><center><%= image_tag("chum_downgrade_placeholder.png", :alt => "Blocipedia") %></center></h1>
    <br>
    <br>
    <br>
-   <div><center><h4 class = "fancy">check them out!</h4></center></div>
+   <div><center><h4 class = "fancy">placeholder</h4></center></div>
  </div>
  </div>
-<div class = "new-wiki">
-<h2><%= link_to "New", new_wiki_path, class: 'btn pull-right' %></h2>
-</div>
-
+ 
+ <div class="private">
+ <% if current_user && current_user.role == 'premium' %>
+    <div>
+    <h2>Your Private Chomps</h2>
+      <% if @user.wikis.count === 0 %>
+      <p>Feel free to take the bait and make a private <%= link_to "Chomp", new_wiki_path %>!</p>
+      <% end %>
+      <% else %>
+        <% @user.wikis.each do |wiki| %>
+            <% if wiki.private %>
+              <p><%= link_to wiki.title, wiki %></p>
+            <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+  </div>
+  </div>
+  
+  <div class = "new-wiki">
+  <h2><%= link_to "New", new_wiki_path, class: 'btn pull-right' %></h2>
+  </div>
+  
  <div class="row">
 <% @wiki.each do |wiki| %>
   <div class="media">
@@ -23,7 +43,7 @@
       <!--<h4 class="media-heading">-->
       <div class="col-md-3">
       <h4 class="wiki-title">
-          <% if wiki.private != true %>
+         <% if wiki.private != true %>
          <%= link_to wiki.title, wiki %>
          <% end %>
       </h4>
@@ -32,20 +52,15 @@
   </div>
 <% end %>
 
-   <div class="col-md-3">
- <% if current_user && current_user.role == 'premium' %>
-    <div>
-    <h2>Your Private Chomps</h2>
-      <% if @user.wikis.count >= 1 %>
-        <% @user.wikis.each do |wiki| %>
-            <% if @wiki.private %>
-              <p><%= link_to wiki.title, wiki %></p>
-            <% end %>
-        <% end %>
-      <% else %>
-        <p>Feel free to take the bait and make a Chomp!</p>
-      <% end %>
-    </div>
-  <% end %>
-  </div>
-  </div>
+  
+  <div class = "bottom-bar-agreeable">
+  <center>
+   Contact | About us | Upgrade
+   <br>
+   <br>
+   Donate | Help | Etc
+   <br>
+   <br>
+   Search <input type="text" name="search"> <button>Submit</button>
+  </center>
+ </div>
