@@ -41,6 +41,29 @@ User.create!(
     password: 'helloworld',
     role: 'standard'
 )
+
+Wiki.create!(
+  title: "My Very First Post",
+  body:
+  %Q{### There Is Something You Should Know!
+
+  This is my very first post using markdown!
+  },
+  user: User.all.sample
+)
+
+Wiki.create!(
+  title: "My Second Post",
+  body:
+  %Q{### My List of Things To Do!
+
+  Here is the list of things I wish to do!
+
+  * write more posts
+  * write even more posts
+  * write even more posts!},
+  user: User.all.sample
+)
  
 puts "seed finished"
 puts "#{User.count} users created"
