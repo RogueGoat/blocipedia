@@ -92,8 +92,18 @@
 }
 
 .show-view {
+ border-radius: 4px;
+ width: 50%;
+ background-color: lightgrey;
+ padding-top: 50px;
+ padding-bottom: 300px;
+}
+
+.markdown {
  margin-left: 50px;
- margin-right: 50px;
+ background-color: lightblue;
+ width: 25%;
+ padding: 30px;
 }
 
 .private {
