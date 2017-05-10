@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
     # skip_before_action :authenticate_user!
-    
+    # wikis controller has user assigned and privacy assigned
     def new
         @user = current_user
         @wiki = Wiki.new

@@ -13,13 +13,14 @@
  </div>
  </div>
  
+ <!--logic for prem and admin users to view private wikis-->
  
  <% if current_user && current_user.role == 'premium' %>
  <div class="private">
     <h2>Your Private Chomps</h2>
-      <% if current_user.wikis.count === 0 %>
+      <% if current_user.wikis.count === 0 %> <!--only this line seems to return-->
       <p>Feel free to take the bait and make a private <%= link_to "Chomp", new_wiki_path %>!</p>
-      <% else %>
+      <% else %> <!--I create wikis with a premium user and they don't show up/appear, and the "feel free to create..." string returns-->
         <% current_user.wikis.each do |wiki| %>
             <% if wiki.private %>
               <p><%= link_to wiki.title, wiki %></p>

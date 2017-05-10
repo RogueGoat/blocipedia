@@ -18,6 +18,7 @@
       <%= wiki.label :body %>
       <%= wiki.text_area :body, class: 'form-control', placeholder: 'Enter your FINtformation' %>
     </div>
+    <!--private checkbox here-->
       <% if current_user.admin? || current_user.premium? %>
       <div class="form-group">
         <%= wiki.label :private, class: 'checkbox' do %>
