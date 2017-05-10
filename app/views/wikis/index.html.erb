@@ -23,7 +23,7 @@
       <% else %> <!--I create wikis with a premium user and they don't show up/appear, and the "feel free to create..." string returns-->
         <% current_user.wikis.each do |wiki| %>
             <% if wiki.private %>
-              <p><%= link_to wiki.title, wiki %></p>
+              <p class = "plink"><%= link_to wiki.title, wiki %></p>
             <% end %>
       <% end %>
       <% end %>
