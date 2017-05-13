@@ -5,12 +5,18 @@
   font-size: 50px;
 }
 
+.unique-nav {
+ background-color: white;
+ width: 100%;
+}
+
 .spacing {
  margin: 20px;
 }
 
 .bottom-bar {
- background-color: #8da8a4;
+ // background-color: #8da8a4;
+ background-color: lightblue;
  width: 100%;
  padding: 30px;
  position: absolute;
@@ -18,25 +24,44 @@
 }
 
 .bottom-bar-agreeable {
- background-color: #8da8a4;
+ // background-color: #8da8a4;
+ background-color: lightblue;
  width: 100%;
  padding: 30px;
  bottom: 0;
 }
 // universal
 
+.test {
+ margin: auto;
+ background-color: white;
+ width: 90%;
+ height: 90%;
+ padding: 30px;
+}
+.bg-test {
+ background-image: url("diamonds_bg3.png");
+}
+
 .background-general {
  background-image: url("diamonds_bg3.png")
 }
- .jumbotron-edit {
-  margin-top: 100px;
-  background-color: #8da8a4;
+  .index-view {
+   padding: 30px;
+   border-radius: 4px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   // background-color: #8da8a4;
+   background-color: lightblue;
+   // width: 900px;
  }
-  .jumbotron-edit2 {
-   background-color: darkgrey;
- }
- .jumbotron-edit3 {
-  background-image: url("diamonds_bg3.png")
+ .diamonds {
+   margin: 100px;
+   box-shadow: 10px 10px 5px grey;
+   padding: 30px;
+   border-radius: 4px;
+   background-image: url("diamonds_bg3.png");
+   // width: 75%;
  }
  .fancy {
   font-family: 'Norican', cursive;
@@ -63,6 +88,14 @@
  }
  .main-links:active {
   font-family: 'Norican', cursive;
+ }
+ 
+ //chat
+ .chat {
+  width: 10%;
+  margin-top: 100px;
+  background-color: lightgrey;
+  float: right;
  }
  
  // wikis

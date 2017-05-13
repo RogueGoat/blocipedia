@@ -39,6 +39,14 @@ class ChargesController < ApplicationController
   def destroy
     #   binding.pry
    current_user.update_attributes(role: 'standard')
+
+    # Make all the wikis belonging to the current user public
+#   TODO: Fix this
+#   wikis = Wiki.all
+   wikis = current_user.wikis
+   wikis.each do |w|
+     w.update(private: false)
+   end
    
    flash[:notice] = "You're no longer subscribed as  premium user, #{current_user.email} (CHUM!)"
    redirect_to root_path    

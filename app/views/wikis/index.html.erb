@@ -1,9 +1,7 @@
+<div class = "bg-test">
+<div class = "test">
 
-<br>
-<br>
-<br>
-<br>
-<div class="jumbotron jumbotron-edit">
+<div class="index-view">
   <div class = "index-header">
    <h1 class = "fancy"><center><%= image_tag("chum_downgrade_placeholder.png", :alt => "Blocipedia") %></center></h1>
    <br>
@@ -16,7 +14,7 @@
  <!--logic for prem and admin users to view private wikis-->
  
  <% if current_user && current_user.role == 'premium' %>
- <div class="private">
+ <div class="diamonds">
     <h2>Your Private Chomps</h2>
       <% if current_user.wikis.count === 0 %> <!--only this line seems to return-->
       <p>Feel free to take the bait and make a private <%= link_to "Chomp", new_wiki_path %>!</p>
@@ -35,7 +33,7 @@
   <h3><%= link_to "New", new_wiki_path, class: 'pull-right' %></h3>
   </div>
   
- <div class="row">
+ <table class="row">
 <% @wiki.each do |wiki| %>
   <div class="media">
     <div class="media-body">
@@ -49,9 +47,10 @@
     </div>
   </div>
   </div>
-  </div>
+  </table>
 <% end %>
-
+</div>
+</div>
   
   <div class = "bottom-bar-agreeable">
   <center>
