@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-    # skip_before_action :authenticate_user!
+    skip_before_action :authenticate_user!
     # wikis controller has user assigned and privacy assigned
     def new
         @user = current_user
@@ -8,14 +8,16 @@ class WikisController < ApplicationController
     
     def index
         @user = current_user
-        @wiki = Wiki.order("published_at DESC")
-        @wiki = Wiki.all
+        @wiki = policy_scope(Wiki)
+        # @wiki = Wiki.all
+        # @wiki = Wiki.order("published_at DESC")
     end
     
     def create
      @wiki = Wiki.new
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
+    #  @wiki.public = params[:wiki][:public]
      @wiki.private = params[:wiki][:private]
      @wiki.user = current_user
 
@@ -41,6 +43,8 @@ class WikisController < ApplicationController
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
      @wiki.private = params[:wiki][:private]
+    #  @wiki.public = params[:wiki][:public]
+
 
      if @wiki.save
        flash[:notice] = "Your updates have been noted!"

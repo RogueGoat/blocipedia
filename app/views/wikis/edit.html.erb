@@ -5,6 +5,15 @@
 
  <h1>Edit this Bloci</h1>
  <br><h4>Insert your own knowledge, trick college students around the world!</h4>
+ 
+ <div class = "pull-right">
+  <table>
+    Collaborators:
+    <p>
+      PLACEHOLDER
+    </p>
+  </table>
+</div>
 
 <div class="row">
   <div class="col-md-8">
@@ -21,6 +30,11 @@
         <%= f.label :private, class: 'checkbox' do %>
           <%= f.check_box :private %> Private Wiki
         <% end %>
+        <br>
+      <div class="col-md-3">
+      <input type="text" class="form-control" placeholder="Add a Collaborator">
+      <!--<button type="submit" class="btn btn-default">Submit</button>-->
+      </div>
       </div>
       <div class="form-group">
         <%= f.submit "Save", class: 'btn btn-success' %>
@@ -28,3 +42,5 @@
     <% end %>
   </div>
 </div>
+
+
