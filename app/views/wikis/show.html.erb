@@ -13,15 +13,20 @@
 <br>
 <br>
 <br>
-
- <div class = "pull-right">
-  <table class = "collaborators">
-    Collaborators:
-    <p>
-      PLACEHOLDER
+ <% if @wiki.private == true %>
+ 
+ <div class = "collaborators">
+     <%= render partial: 'collaborators/form', locals: {wiki_id: @wiki.id} %>
+      <!--link_to "Add", new_collaborators_path, class: 'pull-right btn-info XSmall' -->
+  <table>
+   <p>Your Collaborators:</p>
+    <% @wiki.collaborators.each do |collaborator| %>
+      <p><%= collaborator.user.email %></p>
+    <% end %>
     </p>
   </table>
 </div>
+<% end %>
 
 <center>
 <div class="row show-view">

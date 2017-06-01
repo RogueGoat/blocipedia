@@ -1,0 +1,12 @@
+<div class = "row">
+    <div class="col-md-4">
+   <%= form_for @collaborators do |collab| %>
+
+    <div class="form-group">
+      <%= collab.text_field :title, class: 'form-control', placeholder: 'Enter CHOMP Title' %>
+    </div>
+    <%= wiki.submit "Add Collaborator", class: 'btn btn-success' %>
+    <% end %>
+    <% end %>
+   </div>
+</div>
